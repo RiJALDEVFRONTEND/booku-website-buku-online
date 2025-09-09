@@ -1,347 +1,732 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>booku — Digital Book</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>booku — Digital Book</title>
 
-  <!-- Google Fonts: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Google Font: Plus Jakarta Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Bootstrap 5.3 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts: Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    :root{
-      --page-bg: #f5f8ff; /* latar lembut */
-      --footer-bg: #002E42;
-    }
-    html, body { font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; }
-    body { background-color: #fff; }
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- FAVICON -->
+    <link
+      rel="shortcut icon"
+      href="assets/icon/Logo Jagonyetir 1.png"
+      type="image/x-icon"
+    />
+    <!-- LINK CSS -->
+     <link rel="stylesheet" href="dist/style.css" />
 
-    /* ===== Navbar ===== */
-    .navbar { backdrop-filter: saturate(120%) blur(0px); }
-
-    /* ===== Header Section ===== */
-    .page-header {
-      background: var(--page-bg);
-      border-bottom: 1px solid rgba(2,6,23,.06);
-    }
-
-    /* ===== Controls ===== */
-    .control-wrap { gap: .75rem; }
-    @media (min-width: 768px){
-      .control-wrap { justify-content: space-between; }
-    }
-
-    /* ===== Cards / Grid ===== */
-    .book-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 1rem; /* radius besar */
-      box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
-      transition: transform .15s ease, box-shadow .15s ease;
-      height: 100%;
-    }
-    .book-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 30px rgba(2, 6, 23, 0.10);
-    }
-    .book-card .ratio img {
-      object-fit: cover;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
-    }
-    .book-desc {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;  /* clamp 2 baris */
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      min-height: 3.2em; /* menjaga tinggi konsisten */
-      color: #475569;
-    }
-    .badge-cat{
-      background: rgba(13,110,253,.12);
-      color: #0d6efd;
-      font-weight: 600;
-    }
-
-    /* ===== Pagination ===== */
-    .pagination .page-link{
-      border-radius: .5rem;
-    }
-
-    /* ===== Footer ===== */
-    .site-footer{
-      background: var(--footer-bg);
-      color: #e8f1f5;
-    }
-    .site-footer a{
-      color: #cfe8ff;
-      text-decoration: none;
-    }
-    .site-footer a:hover{
-      color: #ffffff;
-      text-decoration: underline;
-    }
-    .brand-badge{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:32px; height:32px; border-radius:999px;
-      background:#0d6efd1a; color:#ffffff;
-      border:1px solid rgba(255,255,255,.18);
-      margin-right:.5rem;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-    <div class="container">
-      <!-- Brand -->
-      <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html" aria-label="Kembali ke Beranda">
-        <span class="me-2"><i class="bi bi-book-half text-primary"></i></span> booku
-      </a>
-
-      <!-- Toggler -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigasi">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Menu -->
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Beranda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active fw-semibold" aria-current="page" href="digital-book.html">Digital Book</a>
-          </li>
-        </ul>
-
-        <div class="d-flex">
-          <a href="#" class="btn btn-primary-subtle btn-lg px-3 py-1 rounded-pill border-0 fw-semibold">
-            Masuk <i class="bi bi-box-arrow-in-right ms-1" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ===== HEADER ===== -->
-  <header class="page-header py-5">
-    <div class="container">
-      <div class="col-12 col-lg-10">
-        <h1 class="fw-extrabold display-6 mb-2">Download Buku Digital</h1>
-        <p class="lead mb-0">Download buku digital secara gratis di booku.</p>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== CONTROLS ===== -->
-  <section class="py-4">
-    <div class="container">
-      <div class="d-flex flex-column flex-md-row align-items-stretch control-wrap">
-        <!-- Dropdown Kategori -->
-        <div class="dropdown">
-          <button class="btn btn-outline-secondary d-flex align-items-center gap-2" type="button"
-                  id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Pilih kategori buku">
-            <i class="bi bi-tag"></i>
-            <span>Kategori:</span>
-            <strong id="categoryLabel">Semua</strong>
-            <i class="bi bi-caret-down-fill ms-1"></i>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-            <!-- data-category harus sesuai dengan field 'category' pada data -->
-            <li><button class="dropdown-item active" data-category="Semua">Semua</button></li>
-            <li><button class="dropdown-item" data-category="Self-Help">Self-Help</button></li>
-            <li><button class="dropdown-item" data-category="Novel">Novel</button></li>
-            <li><button class="dropdown-item" data-category="Filsafat">Filsafat</button></li>
-            <li><button class="dropdown-item" data-category="Bisnis">Bisnis</button></li>
-            <li><button class="dropdown-item" data-category="Anak">Anak</button></li>
-          </ul>
-        </div>
-
-        <!-- Search -->
-        <form id="searchForm" class="ms-md-auto" role="search" aria-label="Form pencarian buku">
-          <label for="searchInput" class="visually-hidden">Cari Buku Digital</label>
-          <div class="input-group">
-            <input id="searchInput" type="search" class="form-control" placeholder="Cari Buku Digital" aria-label="Cari judul atau deskripsi buku">
-            <button class="btn btn-primary" type="submit" aria-label="Cari">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== GRID KATALOG ===== -->
-  <main class="pb-4">
-    <div class="container">
-      <div id="bookGrid" class="row g-4">
-        <!-- Kartu-kartu dirender lewat JS -->
-      </div>
-
-      <!-- Pagination -->
-      <nav class="mt-4 d-flex justify-content-center" aria-label="Pagination katalog buku">
-        <ul id="pagination" class="pagination gap-2">
-          <!-- Tombol pagination diisi via JS -->
-        </ul>
-      </nav>
-
-      <!-- Feedback kosong -->
-      <div id="emptyState" class="text-center py-5 d-none" role="status" aria-live="polite">
-        <p class="lead mb-1">Tidak ada buku yang cocok dengan filter/pencarian.</p>
-        <p class="text-secondary mb-0">Coba kategori lain atau ubah kata kunci.</p>
-      </div>
-    </div>
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer pt-5 pb-4 mt-4">
-    <div class="container">
-      <div class="row g-4">
-        <!-- Brand + deskripsi -->
-        <div class="col-12 col-lg-4">
-          <div class="d-flex align-items-center mb-2">
-            <span class="brand-badge"><i class="bi bi-book"></i></span>
-            <span class="fs-5 fw-semibold">Booku</span>
-          </div>
-          <p class="mb-0">Perpustakaan buku digital, temukan buku sesuai minat dan bakatmu.</p>
-        </div>
-
-        <!-- Link -->
-        <div class="col-6 col-lg-2">
-          <h6 class="fw-bold">LINK</h6>
-          <ul class="list-unstyled mb-0">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="digital-book.html" aria-current="page">Digital Book</a></li>
-          </ul>
-        </div>
-
-        <!-- Kontak -->
-        <div class="col-6 col-lg-3">
-          <h6 class="fw-bold">KONTAK</h6>
-          <ul class="list-unstyled mb-2">
-            <li>WA: <a href="#" aria-label="Kontak WhatsApp">0839274927492</a></li>
-          </ul>
-          <div class="d-flex gap-3 fs-5">
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" aria-label="Website"><i class="bi bi-globe2"></i></a>
-          </div>
-        </div>
-
-        <!-- Tentang Website -->
-        <div class="col-12 col-lg-3">
-          <h6 class="fw-bold">TENTANG WEBSITE</h6>
-          <p class="mb-0">Website Sistem Informasi Perpustakaan, Download Buku Digital.</p>
-        </div>
-      </div>
-
-      <hr class="border-light-subtle my-4 opacity-25">
-      <div class="d-flex justify-content-between small text-white-50">
-        <span>© Copyright By Minarsih Tech</span>
-        <span>booku</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== Bootstrap Bundle (with Popper) ===== -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- ===== Page Script (Vanilla JS) ===== -->
-  <script>
-    // ----- Data contoh (10–12 item). Gambar dari picsum (600x450 = 4:3) -----
-    const books = [
-      { id: 1,  title: "Kaizen", category: "Self-Help",
-        desc: "Metode Jepang, mengubah habit, satu langkah kecil satu per satu.",
-        img: "https://picsum.photos/seed/kaizen/600/450", alt: "Sampul buku Kaizen" },
-      { id: 2,  title: "Atomic Habits", category: "Self-Help",
-        desc: "Cara mudah dan terbukti untuk membentuk kebiasaan baik.",
-        img: "https://picsum.photos/seed/atomic/600/450", alt: "Sampul buku Atomic Habits" },
-      { id: 3,  title: "Filosofi Teras", category: "Filsafat",
-        desc: "Filsafat Yunani-Romawi kuno untuk mental tangguh masa kini.",
-        img: "https://picsum.photos/seed/filosofi/600/450", alt: "Sampul buku Filosofi Teras" },
-      { id: 4,  title: "The Alchemist", category: "Novel",
-        desc: "Cerita fabel magis tentang mengikuti tanda dan mengejar mimpi.",
-        img: "https://picsum.photos/seed/alchemist/600/450", alt: "Sampul The Alchemist" },
-      { id: 5,  title: "Laskar Pelangi", category: "Novel",
-        desc: "Kisah inspiratif anak-anak Belitong mengejar pendidikan.",
-        img: "https://picsum.photos/seed/laskar/600/450", alt: "Sampul Laskar Pelangi" },
-      { id: 6,  title: "Mindset", category: "Self-Help",
-        desc: "Growth mindset untuk belajar, karier, dan hubungan yang lebih baik.",
-        img: "https://picsum.photos/seed/mindset/600/450", alt: "Sampul buku Mindset" },
-      { id: 7,  title: "Rich Dad Poor Dad", category: "Bisnis",
-        desc: "Pelajaran keuangan pribadi dan cara berpikir tentang aset.",
-        img: "https://picsum.photos/seed/richdad/600/450", alt: "Sampul Rich Dad Poor Dad" },
-      { id: 8,  title: "Start With Why", category: "Bisnis",
-        desc: "Mengapa beberapa pemimpin dan organisasi menginspirasi lebih banyak.",
-        img: "https://picsum.photos/seed/startwhy/600/450", alt: "Sampul Start With Why" },
-      { id: 9,  title: "Man's Search for Meaning", category: "Filsafat",
-        desc: "Perenungan makna hidup melalui pengalaman Viktor Frankl.",
-        img: "https://picsum.photos/seed/meaning/600/450", alt: "Sampul Man's Search for Meaning" },
-      { id: 10, title: "The Little Prince", category: "Anak",
-        desc: "Dongeng puitis tentang persahabatan, imajinasi, dan kedewasaan.",
-        img: "https://picsum.photos/seed/prince/600/450", alt: "Sampul The Little Prince" },
-      { id: 11, title: "Het Boek Van de Kinderen", category: "Anak",
-        desc: "Kisah ajaib untuk anak-anak yang ditulis untuk setiap imajinasi.",
-        img: "https://picsum.photos/seed/kinder/600/450", alt: "Sampul Het Boek Van de Kinderen" },
-      { id: 12, title: "Norwegian Wood", category: "Novel",
-        desc: "Novel coming-of-age berlatar Tokyo tentang cinta dan kehilangan.",
-        img: "https://picsum.photos/seed/norwegian/600/450", alt: "Sampul Norwegian Wood" },
-    ];
-
-    // ----- State -----
-    const PAGE_SIZE = 6;
-    let state = {
-      query: "",
-      category: "Semua",
-      page: 1
-    };
-
-    // ----- DOM Refs -----
-    const gridEl = document.getElementById("bookGrid");
-    const paginationEl = document.getElementById("pagination");
-    const emptyStateEl = document.getElementById("emptyState");
-    const searchForm = document.getElementById("searchForm");
-    const searchInput = document.getElementById("searchInput");
-    const categoryLabel = document.getElementById("categoryLabel");
-
-    // ----- Utilities -----
-    function normalize(str){ return str.toLowerCase().trim(); }
-
-    function getFiltered(){
-      const q = normalize(state.query);
-      return books.filter(b => {
-        const matchCat = (state.category === "Semua") || (b.category === state.category);
-        const hay = `${b.title} ${b.desc}`.toLowerCase();
-        const matchQuery = q === "" || hay.includes(q);
-        return matchCat && matchQuery;
-      });
-    }
-
-    // Render kartu buku
-    function renderGrid(list){
-      gridEl.innerHTML = "";
-      const start = (state.page - 1) * PAGE_SIZE;
-      const pageItems = list.slice(start, start + PAGE_SIZE);
-
-      if(pageItems.length === 0){
-        emptyStateEl.classList.remove("d-none");
-        return;
-      } else {
-        emptyStateEl.classList.add("d-none");
+    <style>
+      :root {
+        --page-bg: #f5f8ff; /* latar lembut */
+        --footer-bg: #002e42;
+      }
+      html,
+      body {
+        font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      }
+      body {
+        background-color: #fff;
       }
 
-      for(const b of pageItems){
-        const col = document.createElement("div");
-        col.className = "col-12 col-md-6 col-lg-4";
+      /* Pakai font untuk navbar */
+      .navbar {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI,
+          Roboto, Arial, sans-serif;
+      }
 
-        col.innerHTML = `
+      /* ===== Navbar ===== */
+
+      /* Tombol Masuk – mirip desain */
+      /* Tombol Masuk – mirip desain */
+      .btn-login {
+        --bg: #3f66f0; /* biru tombol */
+        --bg-hover: #3359ea; /* biru saat hover */
+        --ring: rgba(63, 102, 240, 0.32);
+
+        background: var(--bg);
+        color: #fff;
+        border: 0;
+        border-radius: 999px;
+        padding: 0.55rem 1rem;
+        font-weight: 700;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 8px 18px var(--ring),
+          inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        transition: transform 0.15s ease, box-shadow 0.15s ease,
+          background-color 0.15s ease;
+        text-decoration: none !important; /* langsung di sini */
+      }
+
+      .btn-login:hover {
+        background: var(--bg-hover);
+        color: #fff;
+        transform: translateY(-1px);
+        text-decoration: none !important;
+      }
+
+      .btn-login:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 12px var(--ring),
+          inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        text-decoration: none !important;
+      }
+
+      .btn-login:focus,
+      .btn-login:focus-visible {
+        outline: 2px solid rgba(63, 102, 240, 0.45); /* ring halus */
+        outline-offset: 2px;
+        text-decoration: none !important;
+      }
+
+      /* bulatan kecil ikon */
+      .btn-login .i {
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.22);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+
+      .btn-login:hover {
+        background: var(--bg-hover);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+      .btn-login:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 12px var(--ring),
+          inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      }
+
+      /* bulatan kecil untuk ikon di dalam tombol */
+      .btn-login .i {
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.22);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+      /* Tombol Masuk – mirip desain */
+      /* Tombol Masuk – mirip desain */
+      /* ===== Navbar ===== */
+
+      /* ===== Header Section ===== */
+      .page-header {
+        background: var(--page-bg);
+        border-bottom: 1px solid rgba(2, 6, 23, 0.06);
+      }
+
+      /* ===== Controls ===== */
+      .control-wrap {
+        gap: 0.75rem;
+      }
+      @media (min-width: 768px) {
+        .control-wrap {
+          justify-content: space-between;
+        }
+      }
+
+      /* ===== Cards / Grid ===== */
+      .book-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 1rem; /* radius besar */
+        box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        height: 100%;
+      }
+      .book-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 30px rgba(2, 6, 23, 0.1);
+      }
+      .book-card .ratio img {
+        object-fit: cover;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      }
+      .book-desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* clamp 2 baris */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 3.2em; /* menjaga tinggi konsisten */
+        color: #475569;
+      }
+      .badge-cat {
+        background: rgba(13, 110, 253, 0.12);
+        color: #0d6efd;
+        font-weight: 600;
+      }
+
+      /* ===== Pagination ===== */
+      .pagination .page-link {
+        border-radius: 0.5rem;
+      }
+
+      /* ===== Footer ===== */
+      .site-footer {
+        background: var(--footer-bg);
+        color: #e8f1f5;
+      }
+      .site-footer a {
+        color: #cfe8ff;
+        text-decoration: none;
+      }
+      .site-footer a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+      .brand-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        background: #0d6efd1a;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        margin-right: 0.5rem;
+      }
+      /* Tombol Masuk – mirip desain */
+      /* Tombol Masuk – mirip desain */
+      /* FOOTER */
+      .footer {
+        background: #0b1324;
+        color: #cbd5e1;
+      }
+      .footer a {
+        color: #cbd5e1;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+      .footer .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .footer .brand-badge {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #1f2a44;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .footer .social a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #2b3550;
+        margin-right: 0.5rem;
+      }
+      .footer .social a:hover {
+        background: #1f2a44;
+      }
+      .footer .section-title {
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 0.75rem;
+      }
+      .footer .muted {
+        color: #94a3b8;
+      }
+      .footer .copyright {
+        border-top: 1px solid #1f2a44;
+        color: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg bg-white border-bottom sticky-top navbar-light"
+    >
+      <div class="container">
+        <!-- Brand -->
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="index.html"
+        >
+          <img
+            src="assets/icon/Logo Jagonyetir 1.png"
+            alt="Logo"
+            class="brand-photo"
+            width="28"
+            height="28"
+          />
+          <strong>booku</strong>
+        </a>
+
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="burger" aria-hidden="true">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </span>
+          <span class="toggle-text">
+            <span class="text-open">Menu</span>
+            <span class="text-close">Tutup</span>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <!-- Tombol Masuk (HP) -->
+          <div class="d-lg-none my-3">
+            <a href="#login" class="btn-login w-100 justify-content-center">
+              <span>Masuk</span>
+              <span class="i"><i class="bi bi-box-arrow-in-right"></i></span>
+            </a>
+          </div>
+
+          <!-- Menu tengah -->
+          <ul
+            class="navbar-nav menu-center w-100 justify-content-center text-center gap-2 mx-lg-auto"
+            data-nav-pill
+          >
+            <!-- indikator pill (bergerak) -->
+            <span class="nav-pill-indicator" aria-hidden="true"></span>
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="digital-book.html">Digital Book</a>
+            </li>
+          </ul>
+
+          <!-- Tombol Masuk (Desktop) -->
+          <div class="ms-lg-3 d-none d-lg-block">
+            <a href="#login" class="btn-login">
+              <span>Masuk</span>
+              <span class="i"><i class="bi bi-box-arrow-in-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- NAVBAR -->
+    <!-- NAVBAR -->
+
+    <!-- ===== HEADER ===== -->
+    <header class="page-header py-5">
+      <div class="container">
+        <div class="col-12 col-lg-10">
+          <h1 class="fw-extrabold display-6 mb-2">Download Buku Digital</h1>
+          <p class="lead mb-0">Download buku digital secara gratis di booku.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== CONTROLS ===== -->
+    <section class="py-4">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-md-row align-items-stretch control-wrap"
+        >
+          <!-- Dropdown Kategori -->
+          <div class="dropdown">
+            <button
+              class="btn btn-outline-secondary d-flex align-items-center gap-2"
+              type="button"
+              id="categoryDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              aria-label="Pilih kategori buku"
+            >
+              <i class="bi bi-tag"></i>
+              <span>Kategori:</span>
+              <strong id="categoryLabel">Semua</strong>
+              <i class="bi bi-caret-down-fill ms-1"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+              <!-- data-category harus sesuai dengan field 'category' pada data -->
+              <li>
+                <button class="dropdown-item active" data-category="Semua">
+                  Semua
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" data-category="Self-Help">
+                  Self-Help
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" data-category="Novel">
+                  Novel
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" data-category="Filsafat">
+                  Filsafat
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" data-category="Bisnis">
+                  Bisnis
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" data-category="Anak">Anak</button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Search -->
+          <form
+            id="searchForm"
+            class="ms-md-auto"
+            role="search"
+            aria-label="Form pencarian buku"
+          >
+            <label for="searchInput" class="visually-hidden"
+              >Cari Buku Digital</label
+            >
+            <div class="input-group">
+              <input
+                id="searchInput"
+                type="search"
+                class="form-control"
+                placeholder="Cari Buku Digital"
+                aria-label="Cari judul atau deskripsi buku"
+              />
+              <button class="btn btn-primary" type="submit" aria-label="Cari">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GRID KATALOG ===== -->
+    <main class="pb-4">
+      <div class="container">
+        <div id="bookGrid" class="row g-4">
+          <!-- Kartu-kartu dirender lewat JS -->
+        </div>
+
+        <!-- Pagination -->
+        <nav
+          class="mt-4 d-flex justify-content-center"
+          aria-label="Pagination katalog buku"
+        >
+          <ul id="pagination" class="pagination gap-2">
+            <!-- Tombol pagination diisi via JS -->
+          </ul>
+        </nav>
+
+        <!-- Feedback kosong -->
+        <div
+          id="emptyState"
+          class="text-center py-5 d-none"
+          role="status"
+          aria-live="polite"
+        >
+          <p class="lead mb-1">
+            Tidak ada buku yang cocok dengan filter/pencarian.
+          </p>
+          <p class="text-secondary mb-0">
+            Coba kategori lain atau ubah kata kunci.
+          </p>
+        </div>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+      <!-- top area -->
+      <div class="footer-top">
+        <div class="container">
+          <div class="row g-4 align-items-start">
+            <!-- Brand + deskripsi -->
+            <div class="col-12 col-lg-4">
+              <a
+                href="#"
+                class="brand text-decoration-none d-inline-flex align-items-center gap-2 mb-2"
+              >
+                <span class="brand-badge">
+                  <img
+                    src="assets/icon/logo footer.png"
+                    alt=""
+                    class="brand-logo"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="brand-name">Rentbil</span>
+              </a>
+              <p class="muted mb-0">
+                Perpustakaan buku digital, temukan buku sesuai minat dan
+                baktamu.
+              </p>
+            </div>
+
+            <!-- Link -->
+            <div class="col-6 col-lg-2">
+              <h6 class="section-title">LINK</h6>
+              <nav aria-label="Footer">
+                <ul class="list-unstyled footer-links mb-0">
+                  <li><a href="#beranda">Beranda</a></li>
+                  <li><a href="#digital-book">Digital Book</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- Kontak -->
+            <div class="col-6 col-lg-3">
+              <h6 class="section-title">KONTAK</h6>
+              <address class="muted mb-2 not-italic">
+                WA:
+                <a
+                  href="https://wa.me/628XXXXXXXXXX"
+                  target="_blank"
+                  rel="noopener"
+                  >08542576245</a
+                >
+              </address>
+              <ul class="social list-unstyled d-flex mb-0">
+                <li>
+                  <a href="#" aria-label="Instagram"
+                    ><i class="bi bi-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" aria-label="Facebook"
+                    ><i class="bi bi-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" aria-label="Website"
+                    ><i class="bi bi-globe"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tentang -->
+            <div class="col-12 col-lg-3">
+              <h6 class="section-title">TENTANG WEBSITE</h6>
+              <p class="muted mb-0">
+                Website Sistem Informasi Perpustakaan, Download Buku Digital.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- bottom bar -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="copyright text-center small">
+            © <span id="year"></span> • By
+            <strong class="brand-em">Minarsih Tech</strong>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- /FOOTER -->
+
+    <!-- ===== Bootstrap Bundle (with Popper) ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ===== Page Script (Vanilla JS) ===== -->
+    <script>
+      // ----- Data contoh (10–12 item). Gambar dari picsum (600x450 = 4:3) -----
+      const books = [
+        {
+          id: 1,
+          title: "Kaizen",
+          category: "Self-Help",
+          desc: "Metode Jepang, mengubah habit, satu langkah kecil satu per satu.",
+          img: "./assets/img/Pilihan Buku/kaizen.WebP",
+          alt: "Sampul buku Kaizen",
+        },
+        {
+          id: 2,
+          title: "Atomic Habits",
+          category: "Self-Help",
+          desc: "Cara mudah dan terbukti untuk membentuk kebiasaan baik.",
+          img: "./assets/img/Pilihan Buku/atomic.WebP",
+          alt: "Sampul buku Atomic Habits",
+        },
+        {
+          id: 3,
+          title: "Het Boek Van de Kinderen",
+          category: "Filsafat",
+          desc: "Novel dari A.S Byatt, kisah ajaib yang ditulis untuk setiap anaknya. ",
+          img: "./assets/img/Pilihan Buku/ASbyatt.WebP",
+          alt: "Het Boek Van de Kinderen",
+        },
+        {
+          id: 4,
+          title: "The Alchemist",
+          category: "Novel",
+          desc: "Buku digital the alchemist spesial aniversary 25, karangan paulo coelho.",
+          img: "./assets/img/Pilihan Buku/The Alchemist.Webp",
+          alt: "Sampul The Alchemist",
+        },
+        {
+          id: 5,
+          title: "The Alchemist 2",
+          category: "Novel",
+          desc: "Cerita ajaib fable tentang mengikuti dan mengejar mimpi.",
+          img: "./assets/img/Pilihan Buku/The alchemist 2.Webp",
+          alt: "The Alchemist 2",
+        },
+        {
+          id: 6,
+          title: "Filosofi Teras",
+          category: "Self-Help",
+          desc: "Filsafat yunani-romawi kuno untuk mental tangguh masa kini.",
+          img: "./assets/img/Pilihan Buku/Filosofi Teras.Webp",
+          alt: "Filosofi Teras",
+        },
+        {
+          id: 7,
+          title: "Rich Dad Poor Dad",
+          category: "Bisnis",
+          desc: "Pelajaran keuangan pribadi dan cara berpikir tentang aset.",
+          img: "https://picsum.photos/seed/richdad/600/450",
+          alt: "Sampul Rich Dad Poor Dad",
+        },
+        {
+          id: 8,
+          title: "Start With Why",
+          category: "Bisnis",
+          desc: "Mengapa beberapa pemimpin dan organisasi menginspirasi lebih banyak.",
+          img: "https://picsum.photos/seed/startwhy/600/450",
+          alt: "Sampul Start With Why",
+        },
+        {
+          id: 9,
+          title: "Man's Search for Meaning",
+          category: "Filsafat",
+          desc: "Perenungan makna hidup melalui pengalaman Viktor Frankl.",
+          img: "https://picsum.photos/seed/meaning/600/450",
+          alt: "Sampul Man's Search for Meaning",
+        },
+        {
+          id: 10,
+          title: "The Little Prince",
+          category: "Anak",
+          desc: "Dongeng puitis tentang persahabatan, imajinasi, dan kedewasaan.",
+          img: "https://picsum.photos/seed/prince/600/450",
+          alt: "Sampul The Little Prince",
+        },
+        {
+          id: 11,
+          title: "Het Boek Van de Kinderen",
+          category: "Anak",
+          desc: "Kisah ajaib untuk anak-anak yang ditulis untuk setiap imajinasi.",
+          img: "https://picsum.photos/seed/kinder/600/450",
+          alt: "Sampul Het Boek Van de Kinderen",
+        },
+        {
+          id: 12,
+          title: "Norwegian Wood",
+          category: "Novel",
+          desc: "Novel coming-of-age berlatar Tokyo tentang cinta dan kehilangan.",
+          img: "https://picsum.photos/seed/norwegian/600/450",
+          alt: "Sampul Norwegian Wood",
+        },
+      ];
+
+      // ----- State -----
+      const PAGE_SIZE = 6;
+      let state = {
+        query: "",
+        category: "Semua",
+        page: 1,
+      };
+
+      // ----- DOM Refs -----
+      const gridEl = document.getElementById("bookGrid");
+      const paginationEl = document.getElementById("pagination");
+      const emptyStateEl = document.getElementById("emptyState");
+      const searchForm = document.getElementById("searchForm");
+      const searchInput = document.getElementById("searchInput");
+      const categoryLabel = document.getElementById("categoryLabel");
+
+      // ----- Utilities -----
+      function normalize(str) {
+        return str.toLowerCase().trim();
+      }
+
+      function getFiltered() {
+        const q = normalize(state.query);
+        return books.filter((b) => {
+          const matchCat =
+            state.category === "Semua" || b.category === state.category;
+          const hay = `${b.title} ${b.desc}`.toLowerCase();
+          const matchQuery = q === "" || hay.includes(q);
+          return matchCat && matchQuery;
+        });
+      }
+
+      // Render kartu buku
+      function renderGrid(list) {
+        gridEl.innerHTML = "";
+        const start = (state.page - 1) * PAGE_SIZE;
+        const pageItems = list.slice(start, start + PAGE_SIZE);
+
+        if (pageItems.length === 0) {
+          emptyStateEl.classList.remove("d-none");
+          return;
+        } else {
+          emptyStateEl.classList.add("d-none");
+        }
+
+        for (const b of pageItems) {
+          const col = document.createElement("div");
+          col.className = "col-12 col-md-6 col-lg-4";
+
+          col.innerHTML = `
           <article class="book-card h-100">
             <div class="ratio ratio-4x3">
               <img src="${b.img}" alt="${b.alt}">
@@ -360,81 +745,110 @@
             </div>
           </article>
         `;
-        gridEl.appendChild(col);
-      }
-    }
-
-    // Render pagination
-    function renderPagination(total){
-      paginationEl.innerHTML = "";
-      const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-
-      // Tombol Prev
-      const prevLi = document.createElement("li");
-      prevLi.className = "page-item" + (state.page === 1 ? " disabled" : "");
-      prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Sebelumnya"><span aria-hidden="true">&lt;</span></a>`;
-      prevLi.addEventListener("click", (e)=>{ e.preventDefault(); if(state.page>1){ state.page--; update(); }});
-      paginationEl.appendChild(prevLi);
-
-      // Nomor halaman (maks 7 tombol agar rapi)
-      const maxButtons = 7;
-      let start = Math.max(1, state.page - Math.floor(maxButtons/2));
-      let end = Math.min(totalPages, start + maxButtons - 1);
-      start = Math.max(1, end - maxButtons + 1);
-
-      for(let i=start; i<=end; i++){
-        const li = document.createElement("li");
-        li.className = "page-item" + (i === state.page ? " active" : "");
-        li.innerHTML = `<a class="page-link" href="#" ${i===state.page?'aria-current="page"':''}>${i}</a>`;
-        li.addEventListener("click", (e)=>{ e.preventDefault(); state.page = i; update(false); });
-        paginationEl.appendChild(li);
+          gridEl.appendChild(col);
+        }
       }
 
-      // Tombol Next
-      const nextLi = document.createElement("li");
-      nextLi.className = "page-item" + (state.page === totalPages ? " disabled" : "");
-      nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Berikutnya"><span aria-hidden="true">&gt;</span></a>`;
-      nextLi.addEventListener("click", (e)=>{ e.preventDefault(); if(state.page<totalPages){ state.page++; update(); }});
-      paginationEl.appendChild(nextLi);
-    }
+      // Render pagination
+      function renderPagination(total) {
+        paginationEl.innerHTML = "";
+        const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
-    // Update tampilan (grid + pagination)
-    function update(resetPage = true){
-      const filtered = getFiltered();
-      if(resetPage) { state.page = 1; }
-      renderGrid(filtered);
-      renderPagination(filtered.length);
-    }
+        // Tombol Prev
+        const prevLi = document.createElement("li");
+        prevLi.className = "page-item" + (state.page === 1 ? " disabled" : "");
+        prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Sebelumnya"><span aria-hidden="true">&lt;</span></a>`;
+        prevLi.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (state.page > 1) {
+            state.page--;
+            update();
+          }
+        });
+        paginationEl.appendChild(prevLi);
 
-    // ----- Event: Pencarian -----
-    searchForm.addEventListener("submit", (e)=>{
-      e.preventDefault();
-      state.query = searchInput.value;
-      update(true);
-    });
+        // Nomor halaman (maks 7 tombol agar rapi)
+        const maxButtons = 7;
+        let start = Math.max(1, state.page - Math.floor(maxButtons / 2));
+        let end = Math.min(totalPages, start + maxButtons - 1);
+        start = Math.max(1, end - maxButtons + 1);
 
-    // Tekan Enter di input juga submit
-    searchInput.addEventListener("keydown", (e)=>{
-      if(e.key === "Enter"){
+        for (let i = start; i <= end; i++) {
+          const li = document.createElement("li");
+          li.className = "page-item" + (i === state.page ? " active" : "");
+          li.innerHTML = `<a class="page-link" href="#" ${
+            i === state.page ? 'aria-current="page"' : ""
+          }>${i}</a>`;
+          li.addEventListener("click", (e) => {
+            e.preventDefault();
+            state.page = i;
+            update(false);
+          });
+          paginationEl.appendChild(li);
+        }
+
+        // Tombol Next
+        const nextLi = document.createElement("li");
+        nextLi.className =
+          "page-item" + (state.page === totalPages ? " disabled" : "");
+        nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Berikutnya"><span aria-hidden="true">&gt;</span></a>`;
+        nextLi.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (state.page < totalPages) {
+            state.page++;
+            update();
+          }
+        });
+        paginationEl.appendChild(nextLi);
+      }
+
+      // Update tampilan (grid + pagination)
+      function update(resetPage = true) {
+        const filtered = getFiltered();
+        if (resetPage) {
+          state.page = 1;
+        }
+        renderGrid(filtered);
+        renderPagination(filtered.length);
+      }
+
+      // ----- Event: Pencarian -----
+      searchForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        searchForm.dispatchEvent(new Event("submit"));
-      }
-    });
-
-    // ----- Event: Dropdown kategori -----
-    document.querySelectorAll('.dropdown-menu .dropdown-item').forEach(btn=>{
-      btn.addEventListener('click', (e)=>{
-        document.querySelectorAll('.dropdown-menu .dropdown-item').forEach(b=>b.classList.remove('active'));
-        e.currentTarget.classList.add('active');
-        const cat = e.currentTarget.getAttribute('data-category');
-        state.category = cat;
-        categoryLabel.textContent = cat;
+        state.query = searchInput.value;
         update(true);
       });
-    });
 
-    // ----- Init -----
-    update(true);
-  </script>
-</body>
+      // Tekan Enter di input juga submit
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          searchForm.dispatchEvent(new Event("submit"));
+        }
+      });
+
+      // ----- Event: Dropdown kategori -----
+      document
+        .querySelectorAll(".dropdown-menu .dropdown-item")
+        .forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            document
+              .querySelectorAll(".dropdown-menu .dropdown-item")
+              .forEach((b) => b.classList.remove("active"));
+            e.currentTarget.classList.add("active");
+            const cat = e.currentTarget.getAttribute("data-category");
+            state.category = cat;
+            categoryLabel.textContent = cat;
+            update(true);
+          });
+        });
+
+      // ----- Init -----
+      update(true);
+
+      // hamburger
+      
+      
+    </script>
+  </body>
 </html>
