@@ -1,0 +1,16 @@
+{
+  "css.stylesheets": [
+    "src/**/*.css",
+    "dist/**/*.css",
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+  ],
+  "css.validate": false,
+  "css.lint.unknownProperties": "ignore",
+  "css.lint.vendorPrefix": "ignore",
+  "css.lint.unknownVendorSpecificProperties": "ignore",
+  "css.lint.unknownAtRules": "ignore",
+  "css.lint.validProperties": [
+    "-webkit-line-clamp",
+    "text-wrap"
+  ]
+}
